@@ -44,3 +44,12 @@
   text-decoration: none;
   padding: 1em;
 }
+
+.login-form {
+  margin: 1em;
+  padding: 1em;
+}
+
+.form-group {
+  padding: 1em;
+}
