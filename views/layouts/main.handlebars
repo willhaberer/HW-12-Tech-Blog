@@ -1,0 +1,38 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>--Tech Blog--</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="../../public/style.css" />
+</head>
+<body id="main">
+   <div class="header">
+      <h1>Tech Talks</h1>
+      <nav>
+        <ul>
+          <li>
+            <button id="navBtn">Create</a>
+          </li>
+          <li>
+            <a id="navBtn" href="/blogs">Blogs</a>
+          </li>
+          {{#if loggedIn}}
+          <li>
+           <button class="btn" id="logout">Logout</button>
+          </li>
+          {{else}}
+           <li>
+            <a id="nav-btn" class="nav-link" href="/login"> Login </a>
+          </li>
+          {{/if}}
+        </ul>
+      </nav>
+    </div>
+  <main id="body" class="container container-fluid">
+    {{{body}}}
+  </main>
+  <script src="/js/logout.js"></script>
+</body>
+
+</html>

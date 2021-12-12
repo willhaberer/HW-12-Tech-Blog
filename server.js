@@ -15,9 +15,8 @@ const sess = {
   saveUninitialized: false, //only have saved when we use like a login
 };
 
-//Sets 'hbs.engine' as 'handlebars'
 app.engine("handlebars", hbs.engine);
-//Lets express know that we want the view engine to be 'handlebars'
+
 app.set("view engine", "handlebars");
 
 app.use(session(sess));
