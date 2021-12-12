@@ -11,6 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // turn on routes
 app.use(routes);
+//"turn on" public folder
+app.use(express.static(path.join(__dirname, "public")));
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
