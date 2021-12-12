@@ -15,11 +15,13 @@ const sess = {
   saveUninitialized: false, //only have saved when we use like a login
 };
 
+app.use(session(sess));
+const hbs = exphbs.create({ helpers });
+
 app.engine("handlebars", hbs.engine);
 
 app.set("view engine", "handlebars");
 
-app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
