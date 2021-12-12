@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const path = require("path");
@@ -13,6 +14,11 @@ const sess = {
   resave: false,
   saveUninitialized: false, //only have saved when we use like a login
 };
+
+//Sets 'hbs.engine' as 'handlebars'
+app.engine("handlebars", hbs.engine);
+//Lets express know that we want the view engine to be 'handlebars'
+app.set("view engine", "handlebars");
 
 app.use(session(sess));
 app.use(express.json());
