@@ -12,9 +12,11 @@
   color: #ffffff;
 }
 
-.header h1 {
+.header #page-title {
   display: inline-block;
   font-size: 48px;
+  color: white;
+  text-decoration: none;
 }
 
 .header h1 .seo {
