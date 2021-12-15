@@ -10,4 +10,25 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/", async (req, res) => {
+  try {
+    console.log(req.body);
+    const dbUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.loggedIn = true;
+      console.log(req.session.user_id);
+      res.status(200).json(dbUserData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
