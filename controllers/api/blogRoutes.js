@@ -12,8 +12,13 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  data = req.body;
   try {
-    const blogData = await Blog.create(req.body);
+    const blogData = await Blog.create({
+      title: data.title,
+      content: data.content,
+      user_id: data.user_id,
+    });
     res.status(200).json(blogData);
     console.log(blogData);
   } catch (err) {
