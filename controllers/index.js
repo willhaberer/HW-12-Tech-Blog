@@ -4,12 +4,12 @@ const path = require("path");
 
 router.use("/api", apiRoutes);
 
-// router.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../public/homepage.html"));
-// });
-
 router.get("/", async (req, res) => {
   res.render("homepage");
+});
+
+router.get("/login", async (req, res) => {
+  res.render("login");
 });
 
 module.exports = router;
