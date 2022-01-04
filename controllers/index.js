@@ -11,19 +11,19 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/login", async (req, res) => {
-  res.render("login");
+  res.render("login", { loggedIn: req.session.loggedIn });
 });
 
 router.get("/signup", async (req, res) => {
-  res.render("signup");
+  res.render("signup", { loggedIn: req.session.loggedIn });
 });
 
 router.get("/blogs", withAuth, async (req, res) => {
-  res.render("blogs");
+  res.render("blogs", { loggedIn: req.session.loggedIn });
 });
 
 router.get("/create", withAuth, async (req, res) => {
-  res.render("create");
+  res.render("create", { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
