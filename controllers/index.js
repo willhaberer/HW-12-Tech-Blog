@@ -1,7 +1,8 @@
 const router = require("express").Router();
+const sequelize = require("../config/connection");
 const apiRoutes = require("./api");
 const { User, Blog, Comment } = require("../models");
-const path = require("path");
+
 const withAuth = require("../utils/auth");
 
 router.use("/api", apiRoutes);
@@ -18,7 +19,7 @@ router.get("/signup", async (req, res) => {
   res.render("signup", { loggedIn: req.session.loggedIn });
 });
 
-router.get("/blogs", withAuth, async (req, res) => {
+router.get("/blogs", async (req, res) => {
   res.render("blogs", { loggedIn: req.session.loggedIn });
 });
 
