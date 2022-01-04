@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const apiRoutes = require("./api");
+const { User, Blog, Comment } = require("../models");
 const path = require("path");
 const withAuth = require("../utils/auth");
+const getBlogs = require("../utils/getblogs.js");
 
 router.use("/api", apiRoutes);
 
@@ -18,7 +20,12 @@ router.get("/signup", async (req, res) => {
 });
 
 router.get("/blogs", withAuth, async (req, res) => {
-  res.render("blogs");
+  const blogs = getBlogs;
+  res.render("blogs", blogs);
+});
+
+router.get("/create", withAuth, async (req, res) => {
+  res.render("create");
 });
 
 module.exports = router;
