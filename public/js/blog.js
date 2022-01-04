@@ -1,12 +1,12 @@
-const signupFormHandler = async (event) => {
+const blogFormHandler = async (event) => {
   event.preventDefault();
-  const title = document.querySelector("#email-signup").value.trim();
-  const content = document.querySelector("#password-signup").value.trim();
+  const title = document.querySelector("#title-blog").value.trim();
+  const content = document.querySelector("#content-blog").value.trim();
 
   if (title && content) {
     const response = await fetch("/api/blog", {
       method: "POST",
-      body: JSON.stringify({ email, password, username }),
+      body: JSON.stringify({ title, content }),
       headers: { "Content-Type": "application/json" },
     });
     console.log(response);
@@ -19,4 +19,4 @@ const signupFormHandler = async (event) => {
 };
 document
   .querySelector("#blog-form")
-  .addEventListener("submit", signupFormHandler);
+  .addEventListener("submit", blogFormHandler);
